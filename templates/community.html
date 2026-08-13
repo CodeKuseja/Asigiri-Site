@@ -1,0 +1,155 @@
+<!-- Asigiri Rating Site Lahhh -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Asigiri Community</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('anime_page') }}">Anime</a>
+            <a href="{{ url_for('community') }}">Community</a>
+            <a href="{{ url_for('content') }}">Help</a>
+        </nav>
+
+    </header>
+
+    <main class="community-page">
+
+        <section class="community-form-section">
+
+            <h1>Anime Community</h1>
+
+            <p>
+                Share your opinion, review, or recommendation about an anime.
+            </p>
+
+            <form
+                method="POST"
+                action="{{ url_for('community') }}"
+                class="community-form"
+            >
+
+                <label for="anime_name">
+                    Choose an anime
+                </label>
+
+                <select
+                    id="anime_name"
+                    name="anime_name"
+                    required
+                >
+
+                    <option value="">
+                        Select an anime
+                    </option>
+
+                    {% for anime in anime_names %}
+
+                        <option value="{{ anime['name'] }}">
+                            {{ anime['name'] }}
+                        </option>
+
+                    {% endfor %}
+
+                </select>
+
+                <label for="username">
+                    Display name
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    maxlength="30"
+                    placeholder="Anonymous User"
+                >
+
+                <label for="message">
+                    Your comment
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    maxlength="1000"
+                    placeholder="Write your opinion here..."
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    Post Comment
+                </button>
+
+            </form>
+
+        </section>
+
+        <section class="community-posts">
+
+            <h2>Recent Posts</h2>
+
+            {% if posts %}
+
+                {% for post in posts %}
+
+                    <article class="community-post">
+
+                        <div class="post-heading">
+
+                            <h3>
+                                {{ post['anime_name'] }}
+                            </h3>
+
+                            <span>
+                                Posted by {{ post['username'] }}
+                            </span>
+
+                        </div>
+
+                        <p>
+                            {{ post['message'] }}
+                        </p>
+
+                        <small>
+                            {{ post['created_at'] }}
+                        </small>
+
+                    </article>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>
+                    No community posts yet. Be the first to post.
+                </p>
+
+            {% endif %}
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,239 @@
+<!-- Asigiri Rating Site Lashhh -->
+<!-- Incomplete, set but work on progress -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Asigiri</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- Asigiri Loading screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <h2>Loading...</h2>
+    </div>
+
+    <!-- Main website content -->
+    <div id="content" style="display: none;">
+
+        <header>
+
+            <div class="logo-container">
+
+                <img
+                 src="{{ url_for('static', filename='OIP.webp') }}"
+                 alt="Asigiri logo"
+                  class="logo"
+                >
+
+                <div class="title">
+                    <h2>朝霧へようこそ</h2>
+                    <h3>Welcome to Asigiri!</h3>
+                </div>
+
+            </div>
+
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+
+                <a href="{{ url_for('anime_page') }}">
+                    Anime
+                </a>
+
+                <a href="{{ url_for('community') }}">
+                    Community
+                </a>
+
+                <a href="{{ url_for('content') }}">
+                    Help
+                </a>
+            </nav>
+
+        </header>
+
+        <main>
+
+            <!-- Python-based search form -->
+            <!-- functions well I guess-->
+            <form
+                class="search-container"
+                method="GET"
+                action="{{ url_for('home') }}"
+            >
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    name="q"
+                    placeholder="Search by name, genre, type or rating..."
+                    value="{{ search }}"
+                >
+
+                <button
+                    type="submit"
+                    id="searchBtn"
+                >
+                    Search
+                </button>
+
+            </form>
+
+            {% if search %}
+
+                <p class="search-message">
+                    Search results for:
+                    <strong>{{ search }}</strong>
+                </p>
+
+            {% endif %}
+
+            <!-- Anime cards -->
+            <div id="results">
+
+                <!-- Featured cards only appear when not searching -->
+                {% if not search %}
+
+                    <div class="anime-card">
+
+                        <img
+                            src="{{ url_for(
+                                'static',
+                                filename='image holder/Foodwars.jpg'
+                            ) }}"
+                            alt="Food Wars"
+                        >
+
+                        <div class="anime-info">
+
+                            <h2>Food Wars</h2>
+
+                            <p class="genre">
+                                Action
+                            </p>
+
+                            <p class="rating">
+                                ⭐ 8.9
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="anime-card">
+
+                        <img
+                            src="{{ url_for(
+                                'static',
+                                filename='image holder/OIP.webp'
+                            ) }}"
+                            alt="Nisekoi"
+                        >
+
+                        <div class="anime-info">
+
+                            <h2>Nisekoi</h2>
+
+                            <p class="genre">
+                                Comedy, Romance
+                            </p>
+
+                            <p class="rating">
+                                ⭐ 8.3
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                {% endif %}
+
+                <!-- Database-generated cards -->
+                {% if anime %}
+
+                    {% for item in anime %}
+
+                        <div class="anime-card">
+
+                            {% if item['image_url'] %}
+
+                                <img
+                                    src="{{ item['image_url'] }}"
+                                    alt="{{ item['name'] }}"
+                                    loading="lazy"
+                                >
+
+                            {% else %}
+
+                                <img
+                                    src="{{ url_for(
+                                        'static',
+                                        filename='image holder/OIP.webp'
+                                    ) }}"
+                                    alt="{{ item['name'] }}"
+                                    loading="lazy"
+                                >
+
+                            {% endif %}
+
+                            <div class="anime-info">
+
+                                <h2>
+                                    {{ item['name'] }}
+                                </h2>
+
+                                <p class="genre">
+                                    {{ item['genre'] }}
+                                </p>
+
+                                {% if item['type'] %}
+
+                                    <p class="type">
+                                        {{ item['type'] }}
+                                    </p>
+
+                                {% endif %}
+
+                                <p class="rating">
+                                    ⭐ {{ item['rating'] }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <p class="no-results">
+                        No anime matched your search.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script
+        src="{{ url_for('static', filename='script.js') }}"
+    ></script>
+
+</body>
+
+</html>

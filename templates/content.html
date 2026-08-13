@@ -1,0 +1,80 @@
+<!-- Asigiri rating site lahhh 44 -->
+<!-- Asigiri details holder, such as help etc -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Asigiri Anime list</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('anime_page') }}">Anime</a>
+            <a href="{{ url_for('community') }}">Community</a>
+            <a href="{{ url_for('content') }}">Help</a>
+        </nav>
+
+    <section class="help-section">
+
+    <div class="help-heading">
+        <p class="help-japanese">お問い合わせ</p>
+        <h2>Share Feedback and Recommendations</h2>
+        <p>
+            If you have a suggestion, question, or recommendation for Asigiri?
+            You can find our contact details below.
+        </p>
+    </div>
+
+    <div class="contact-card">
+
+        <h3>Contact Our Social's Below!</h3>
+
+        <div class="contact-grid">
+
+            <div class="contact-item">
+                <span class="contact-label">Phone:</span>
+                <p>+64 22 417 1158</p>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-label">Fax</span>
+                <p>None</p>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-label">Website:</span>
+                <p>www.asigiri.com</p>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-label">Social Media:</span>
+                <p>@asigiri</p>
+                <small>Twitter • Instagram • Facebook</small>
+            </div>
+
+            <div class="contact-item contact-wide">
+                <span class="contact-label">Support Email</span>
+                <p>AsigiriRatingSite@gmail.com</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

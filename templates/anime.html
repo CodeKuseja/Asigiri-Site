@@ -1,0 +1,238 @@
+<!-- Asigiri rating site lahhh 44 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Asigiri Anime list</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <header>
+
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('anime_page') }}">Anime</a>
+            <a href="{{ url_for('community') }}">Community</a>
+            <a href="{{ url_for('content') }}">Help</a>
+        </nav>
+
+    </header>
+<!-- Anime card leaderboards-->
+
+   <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Anime Rankings | Asigiri</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body class="anime-page-body">
+
+    <!-- Navigation -->
+    <header class="anime-header">
+
+        <div class="anime-logo-area">
+
+            <img
+                src="{{ url_for('static', filename='OIP.webp') }}"
+                alt="Asigiri Logo"
+                class="anime-logo"
+            >
+
+            <div>
+                <h1>朝霧</h1>
+                <p>ASIGIRI</p>
+            </div>
+            
+    <main class="anime-ranking-page">
+
+        <!-- Decorative Japanese background text -->
+        <div class="japanese-background">
+            アニメ
+        </div>
+
+
+        <!-- Page Heading -->
+        <section class="ranking-hero">
+
+            <p class="ranking-japanese">
+                アニメランキング
+            </p>
+
+            <h1>
+                TOP 50 ANIME
+            </h1>
+
+            <p class="ranking-description">
+                Asigiri's highest-rated anime
+            </p>
+
+            <div class="japanese-divider">
+                ◆ 朝霧 ◆
+            </div>
+
+        </section>
+
+
+        <!-- Leaderboard -->
+        <section class="leaderboard-container">
+
+            <div class="leaderboard-title">
+
+                <div>
+                    <span class="small-japanese">
+                        評価ランキング
+                    </span>
+
+                    <h2>
+                        Anime Leaderboard
+                    </h2>
+                </div>
+
+                <span class="top-label">
+                    TOP 50
+                </span>
+
+            </div>
+
+
+            <!-- Column labels -->
+            <div class="leaderboard-columns">
+
+                <span>RANK</span>
+                <span>ANIME</span>
+                <span>RATING</span>
+
+            </div>
+
+
+            <!-- Database leaderboard -->
+            {% for item in leaderboard %}
+
+                <article class="ranking-card">
+
+                    <!-- Ranking number -->
+                    <div class="rank-number">
+
+                        <span class="rank-hash">
+                            #
+                        </span>
+
+                        {{ loop.index }}
+
+                    </div>
+
+
+                    <!-- Cover -->
+                    <div class="ranking-cover">
+
+                        {% if item['image_url'] %}
+
+                            <img
+                                src="{{ item['image_url'] }}"
+                                alt="{{ item['name'] }}"
+                                loading="lazy"
+                            >
+
+                        {% else %}
+
+                            <img
+                                src="{{ url_for(
+                                    'static',
+                                    filename='image holder/default_cover.webp'
+                                ) }}"
+                                alt="{{ item['name'] }}"
+                                loading="lazy"
+                            >
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- Anime information -->
+                    <div class="ranking-info">
+
+                        <span class="anime-number">
+                            ANIME {{ "%03d"|format(loop.index) }}
+                        </span>
+
+                        <h2>
+                            {{ item['name'] }}
+                        </h2>
+
+                        <p class="ranking-genre">
+                            {{ item['genre'] }}
+                        </p>
+
+                        <p class="ranking-members">
+                            👥
+                            {{ "{:,}".format(item['members']) }}
+                            members
+                        </p>
+
+                    </div>
+
+
+                    <!-- Rating -->
+                    <div class="ranking-score">
+
+                        <span class="score-label">
+                            SCORE
+                        </span>
+
+                        <strong>
+                            ★ {{ item['rating'] }}
+                        </strong>
+
+                    </div>
+
+                </article>
+
+            {% endfor %}
+
+        </section>
+
+
+        <footer class="anime-footer">
+
+            <span>
+                朝霧
+            </span>
+
+            <p>
+                ASIGIRI ANIME DATABASE
+            </p>
+
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
