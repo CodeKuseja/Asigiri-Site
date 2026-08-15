@@ -203,3 +203,251 @@ body {
     font-size: 18px;
     font-weight: bold;
 }
+
+/* Community Page bruh */
+
+.community-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+
+/* Page headingss1 */
+.community-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.community-intro h1 {
+    color: #d4af37;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.community-intro p {
+    color: #cccccc;
+    font-size: 18px;
+}
+
+
+/* General card design */
+.community-card {
+    background: #1a1a1a;
+    border: 2px solid #333333;
+    border-radius: 15px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.5);
+
+    transition: all 0.3s ease;
+}
+
+.community-card:hover {
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.25);
+}
+
+
+/* Form section */
+.community-form-section {
+    margin-bottom: 50px;
+}
+
+.form-card h2 {
+    color: #d4af37;
+    margin-top: 0;
+}
+
+.community-description {
+    color: #bbbbbb;
+    margin-bottom: 25px;
+}
+
+
+/* Community form */
+.community-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.community-form label {
+    color: #f7d705;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.community-form input,
+.community-form select,
+.community-form textarea {
+    background: #111111;
+    color: white;
+
+    border: 2px solid #444444;
+    border-radius: 8px;
+
+    padding: 12px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+.community-form input:focus,
+.community-form select:focus,
+.community-form textarea:focus {
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.community-form textarea {
+    resize: vertical;
+}
+
+
+/* Post button */
+.post-button {
+    margin-top: 15px;
+
+    padding: 13px 25px;
+
+    background: #111111;
+    color: #d4af37;
+
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.post-button:hover {
+    background: #d4af37;
+    color: #111111;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+
+/* Recent posts heading */
+.community-posts-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.community-posts-heading h2 {
+    color: #d4af37;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.community-posts-heading p {
+    color: #bbbbbb;
+}
+
+
+/* Post layout */
+.community-post-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 25px;
+}
+
+
+/* Individual post cards */
+.community-post {
+    background: #1a1a1a;
+
+    border: 2px solid #333333;
+    border-radius: 15px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.5);
+
+    transition: all 0.3s ease;
+}
+
+.community-post:hover {
+    transform: translateY(-5px);
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+
+/* Post heading */
+.post-heading {
+    border-bottom: 1px solid #444444;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.post-heading h3 {
+    margin: 0;
+    color: #f7d705;
+}
+
+.post-user {
+    color: #999999;
+    font-size: 14px;
+}
+
+
+/* Comment text */
+.post-message {
+    min-height: 70px;
+}
+
+.post-message p {
+    color: #dddddd;
+    line-height: 1.6;
+}
+
+
+/* Date / footer */
+.post-footer {
+    border-top: 1px solid #333333;
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+.post-footer small {
+    color: #888888;
+}
+
+
+/* No posts card */
+.empty-post-card {
+    text-align: center;
+}
+
+.empty-post-card h3 {
+    color: #d4af37;
+}
+
+.empty-post-card p {
+    color: #bbbbbb;
+}
