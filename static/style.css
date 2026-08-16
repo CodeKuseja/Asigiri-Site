@@ -1,3 +1,7 @@
+/*-------------------------------------------------------------------------------------------------*/
+/** CSS for Asigiri Anime Website this is for design only **/
+/*--------------------------------------------------------------------------------------------------*/
+
 /*Searchy Bar*/
 
 .search-container {
@@ -452,134 +456,176 @@ body {
     color: #bbbbbb;
 }
 
-/*ANIME PAGE :] */
+/*ANIME POST CARD*/
 
-.anime-page {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 40px;
+.anime-page-body {
+    margin: 0;
+    background:
+        radial-gradient(
+            circle at top,
+            #1a1a1a 0%,
+            #0d0d0d 45%,
+            #080808 100%
+        );
+
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
-/* Anime page heading */
-.anime-page-heading {
-    text-align: center;
-    margin-bottom: 40px;
-}
+/*ANIME HEADER*/
 
-.anime-page-heading h1 {
-    color: #d4af37;
-    font-size: 38px;
-    margin-bottom: 10px;
+.anime-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    text-shadow:
-        0 0 10px rgba(212, 175, 55, 0.4);
-}
+    padding: 20px 50px;
 
-.anime-page-heading p {
-    color: #cccccc;
-    font-size: 18px;
-}
+    background: rgba(10, 10, 10, 0.95);
 
-
-/*ANIME GRIDD LAYOUTT*/
-
-.anime-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(230px, 1fr));
-
-    gap: 30px;
-
-    padding: 20px 0 50px 0;
-}
-
-
-/*ANIME CARD*/
-
-.anime-card {
-    background: linear-gradient(
-        180deg,
-        #1d1d1d,
-        #141414
-    );
-
-    border: 2px solid #2f2f2f;
-    border-radius: 16px;
-
-    overflow: hidden;
+    border-bottom: 2px solid #d4af37;
 
     box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.55);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease;
+        0 5px 20px rgba(0, 0, 0, 0.7);
 }
 
 
-/* Anime card hover (ANIMATION WHEN CROSSHAIR COMES) */
-.anime-card:hover {
-    transform: translateY(-10px) scale(1.02);
-
-    border-color: #d4af37;
-
-    box-shadow:
-        0 0 12px rgba(212, 175, 55, 0.35),
-        0 12px 25px rgba(0, 0, 0, 0.7);
+/* Logo and title area */
+.anime-logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 
-/* ANIME COVER FOR IMG*/
-
-.anime-card img {
-    width: 100%;
-    height: 330px;
+.anime-logo {
+    width: 70px;
+    height: 70px;
 
     object-fit: cover;
 
-    display: block;
+    border-radius: 50%;
+    border: 3px solid #d4af37;
 
-    transition:
-        transform 0.4s ease,
-        filter 0.4s ease;
+    padding: 3px;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 0 15px rgba(212, 175, 55, 0.4);
 }
 
 
-/* Small image zoom when hovering card */
-.anime-card:hover img {
-    transform: scale(1.05);
+.anime-logo:hover {
+    transform: rotate(5deg) scale(1.08);
 
-    filter:
-        brightness(1.08)
-        contrast(1.05);
+    box-shadow:
+        0 0 25px rgba(212, 175, 55, 0.8);
 }
 
 
-/*ANIME INFO HEHE*/
+.anime-logo-area h1 {
+    margin: 0;
 
-.anime-info {
-    padding: 18px;
+    color: #f7d705;
+
+    font-size: 28px;
 }
 
 
-/* Anime title */
-.anime-info h2 {
-    margin: 0 0 12px 0;
+.anime-logo-area p {
+    margin: 2px 0 0;
 
-    color: #ffffff;
+    color: #d4af37;
 
-    font-size: 21px;
+    font-size: 12px;
 
-    line-height: 1.3;
+    letter-spacing: 4px;
 }
 
 
-/* Genre */
-.genre {
-    color: #bbbbbb;
+/*NAVIGATION BAR (ADDING THESE TITLE EACH CODING FOR INFO)*/
+
+.anime-header nav {
+    display: flex;
+    gap: 15px;
+}
+
+
+.anime-header nav a {
+    text-decoration: none;
+
+    color: #d4af37;
+
+    border: 1px solid #d4af37;
+    border-radius: 20px;
+
+    padding: 9px 18px;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+
+.anime-header nav a:hover {
+    background: #d4af37;
+    color: #111111;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+
+/* MAIN PAGE CONTENT -----++->*?/
+
+.anime-ranking-page {
+    position: relative;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 60px 30px;
+}
+
+
+/* Decorative Japanese text */
+.japanese-background {
+    position: absolute;
+
+    top: 40px;
+    right: 20px;
+
+    font-size: 150px;
+    font-weight: bold;
+
+    color: rgba(212, 175, 55, 0.035);
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* PAGEE HEADING --------?*?
+
+.ranking-hero {
+    text-align: center;
+
+    margin-bottom: 50px;
+
+    position: relative;
+}
+
+
+.ranking-japanese {
+    color: #d4af37;
+
+    letter-spacing: 6px;
 
     font-size: 15px;
 
@@ -587,78 +633,370 @@ body {
 }
 
 
-/* Anime type */
-.type {
-    display: inline-block;
+.ranking-hero h1 {
+    margin: 0;
+
+    font-size: 50px;
+
+    color: #ffffff;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+
+.ranking-description {
+    color: #aaaaaa;
+
+    font-size: 18px;
+
+    margin-top: 12px;
+}
+
+
+.japanese-divider {
+    margin-top: 20px;
 
     color: #d4af37;
-    background: #111111;
 
-    border: 1px solid #d4af37;
+    letter-spacing: 5px;
+}
+
+
+/* LEADERBOARD CONTAINER*/
+
+.leaderboard-container {
+    background: rgba(20, 20, 20, 0.9);
+
+    border: 1px solid #333333;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Leaderboard heading */
+.leaderboard-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #444444;
+}
+
+
+.small-japanese {
+    color: #d4af37;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+}
+
+
+.leaderboard-title h2 {
+    margin: 5px 0 0;
+
+    font-size: 30px;
+
+    color: white;
+}
+
+
+.top-label {
+    background: #d4af37;
+
+    color: #111111;
+
+    padding: 8px 15px;
+
     border-radius: 20px;
 
-    padding: 4px 10px;
-
     font-size: 13px;
-
-    margin-bottom: 10px;
-}
-
-
-/* Rating */
-.rating {
-    color: #ffd700;
-
-    font-size: 18px;
     font-weight: bold;
 
-    margin-top: 8px;
+    letter-spacing: 2px;
 }
 
 
+/* COLUMN HEADINGS */
 
-/* RESULTS NONE/OR SOEMTHING*/
+.leaderboard-columns {
+    display: grid;
 
-.no-results {
-    grid-column: 1 / -1;
+    grid-template-columns:
+        100px 1fr 140px;
 
-    text-align: center;
+    padding: 10px 20px;
 
-    padding: 40px;
+    color: #777777;
 
-    background: #1a1a1a;
+    font-size: 12px;
 
-    border: 2px solid #333333;
-    border-radius: 15px;
+    font-weight: bold;
 
+    letter-spacing: 2px;
+
+    border-bottom: 1px solid #333333;
+}
+
+
+/*RANK CARDS DISPLAYS AND ASTHETHIC*/
+
+.ranking-card {
+    display: grid;
+
+    grid-template-columns:
+        90px 100px 1fr 140px;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-top: 14px;
+
+    padding: 15px 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #171717,
+            #111111
+        );
+
+    border: 1px solid #2f2f2f;
+
+    border-radius: 14px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.ranking-card:hover {
+    transform:
+        translateY(-4px)
+        scale(1.01);
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.22);
+}
+
+
+/*RANK NUMBERING IN LB*/
+
+.rank-number {
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #d4af37;
+}
+
+
+.rank-hash {
+    color: #777777;
+
+    font-size: 16px;
+}
+
+
+/*COVER IMAGE*/
+
+.ranking-cover img {
+    width: 80px;
+    height: 110px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    display: block;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.6);
+
+    transition: all 0.3s ease;
+}
+
+
+.ranking-card:hover .ranking-cover img {
+    transform: scale(1.06);
+}
+
+
+/*ANIME DETAILS AND INFORMATION*/
+
+.ranking-info {
+    min-width: 0;
+}
+
+
+.anime-number {
+    color: #777777;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+
+.ranking-info h2 {
+    margin: 5px 0 8px;
+
+    color: #ffffff;
+
+    font-size: 21px;
+}
+
+
+.ranking-genre {
     color: #bbbbbb;
 
-    font-size: 18px;
+    margin: 0 0 8px;
+
+    font-size: 14px;
 }
 
 
+.ranking-members {
+    color: #777777;
 
- /* RESPONSIVE DESIGN */
+    margin: 0;
 
-@media (max-width: 700px) {
+    font-size: 13px;
+}
 
-    .anime-page {
+
+/*score ranking in LB*/
+
+.ranking-score {
+    text-align: right;
+}
+
+
+.score-label {
+    display: block;
+
+    color: #777777;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 6px;
+}
+
+
+.ranking-score strong {
+    color: #ffd700;
+
+    font-size: 22px;
+
+    text-shadow:
+        0 0 8px rgba(255, 215, 0, 0.25);
+}
+
+
+/* footer bottom of the webpage for details etc.*/
+
+.anime-footer {
+    text-align: center;
+
+    margin-top: 60px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid #333333;
+
+    color: #777777;
+}
+
+
+.anime-footer span {
+    color: #d4af37;
+
+    font-size: 24px;
+}
+
+
+.anime-footer p {
+    letter-spacing: 3px;
+
+    font-size: 11px;
+}
+
+
+/*smaller lenght screens*/
+
+@media (max-width: 800px) {
+
+    .anime-header {
+        flex-direction: column;
+
+        gap: 20px;
+
         padding: 20px;
     }
 
-    .anime-page-heading h1 {
-        font-size: 30px;
+
+    .anime-header nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
     }
 
-    .anime-grid {
+
+    .anime-ranking-page {
+        padding: 40px 15px;
+    }
+
+
+    .ranking-hero h1 {
+        font-size: 36px;
+    }
+
+
+    .japanese-background {
+        font-size: 90px;
+    }
+
+
+    .leaderboard-columns {
+        display: none;
+    }
+
+
+    .ranking-card {
         grid-template-columns:
-            repeat(auto-fit, minmax(180px, 1fr));
-
-        gap: 20px;
+            60px 80px 1fr;
     }
 
-    .anime-card img {
-        height: 280px;
+
+    .ranking-score {
+        grid-column: 3;
+
+        text-align: left;
+    }
+
+
+    .ranking-cover img {
+        width: 70px;
+        height: 95px;
     }
 
 }
