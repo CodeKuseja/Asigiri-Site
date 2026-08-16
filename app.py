@@ -79,7 +79,7 @@ def home():
 
 
 # =================#
-# COMMUNITY PAGE   #
+# COMMUNITY PAGEI   #
 # ================ #
 
 @app.route("/community", methods=["GET", "POST"])
