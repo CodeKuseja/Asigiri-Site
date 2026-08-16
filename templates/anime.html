@@ -1,41 +1,9 @@
-<!-- Asigiri rating site lahhh 44 -->
+<!-- Asigiri Anime Rankings -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Asigiri Anime list</title>
-
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
-</head>
-
-<body>
-
-    <header>
-
-        <nav>
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="{{ url_for('anime_page') }}">Anime</a>
-            <a href="{{ url_for('community') }}">Community</a>
-            <a href="{{ url_for('content') }}">Help</a>
-        </nav>
-
-    </header>
-<!-- Anime card leaderboards-->
-
-   <!DOCTYPE html>
-<html lang="en">
-
-<head>
     <meta charset="UTF-8">
 
     <meta
@@ -45,17 +13,24 @@
 
     <title>Anime Rankings | Asigiri</title>
 
+    <!-- Main Asigiri CSS -->
     <link
         rel="stylesheet"
         href="{{ url_for('static', filename='style.css') }}"
     >
+
 </head>
+
 
 <body class="anime-page-body">
 
-    <!-- Navigation -->
+
+    /*HEADER AN NAV FUNCTIONS*/>
+
     <header class="anime-header">
 
+
+        <!-- Asigiri Logo -->
         <div class="anime-logo-area">
 
             <img
@@ -65,19 +40,60 @@
             >
 
             <div>
-                <h1>朝霧</h1>
-                <p>ASIGIRI</p>
+
+                <h1>
+                    朝霧
+                </h1>
+
+                <p>
+                    ASIGIRI
+                </p>
+
             </div>
-            
+
+        </div>
+
+
+        <!-- Navigation -->
+        <nav>
+
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+
+            <a href="{{ url_for('anime_page') }}">
+                Anime
+            </a>
+
+            <a href="{{ url_for('community') }}">
+                Community
+            </a>
+
+            <a href="{{ url_for('content') }}">
+                Help
+            </a>
+
+        </nav>
+
+
+    </header>
+
+
+
+   /*MAIN PAGE CONTENT AND ANIME DETAILS*/
+
     <main class="anime-ranking-page">
 
-        <!-- Decorative Japanese background text -->
+
+        <!-- Decorative Japanese background -->
         <div class="japanese-background">
             アニメ
         </div>
 
 
-        <!-- Page Heading -->
+
+      /*ANIME PAGE HEDING*/
+
         <section class="ranking-hero">
 
             <p class="ranking-japanese">
@@ -99,12 +115,17 @@
         </section>
 
 
-        <!-- Leaderboard -->
+
+     /* THE ANIME LB (LEADERBOARD)*/
+
         <section class="leaderboard-container">
 
+
+            <!-- Leaderboard Heading -->
             <div class="leaderboard-title">
 
                 <div>
+
                     <span class="small-japanese">
                         評価ランキング
                     </span>
@@ -112,7 +133,9 @@
                     <h2>
                         Anime Leaderboard
                     </h2>
+
                 </div>
+
 
                 <span class="top-label">
                     TOP 50
@@ -121,22 +144,36 @@
             </div>
 
 
-            <!-- Column labels -->
+
+            <!-- Leaderboard Column Names -->
             <div class="leaderboard-columns">
 
-                <span>RANK</span>
-                <span>ANIME</span>
-                <span>RATING</span>
+                <span>
+                    RANK
+                </span>
+
+                <span>
+                    ANIME
+                </span>
+
+                <span>
+                    RATING
+                </span>
 
             </div>
 
 
-            <!-- Database leaderboard -->
+
+   
+            <!-- Leaderboard Items (ANIME IMG GENERATION) -->
+
             {% for item in leaderboard %}
+
 
                 <article class="ranking-card">
 
-                    <!-- Ranking number -->
+
+                    <!-- Ranking Number -->
                     <div class="rank-number">
 
                         <span class="rank-hash">
@@ -148,19 +185,26 @@
                     </div>
 
 
-                    <!-- Cover -->
+
+                    <!-- Anime Cover -->
                     <div class="ranking-cover">
+
 
                         {% if item['image_url'] %}
 
+
+                            <!-- Use anime cover from database -->
                             <img
                                 src="{{ item['image_url'] }}"
                                 alt="{{ item['name'] }}"
                                 loading="lazy"
                             >
 
+
                         {% else %}
 
+
+                            <!-- Default cover if anime has no image -->
                             <img
                                 src="{{ url_for(
                                     'static',
@@ -170,68 +214,104 @@
                                 loading="lazy"
                             >
 
+
                         {% endif %}
+
 
                     </div>
 
 
-                    <!-- Anime information -->
+
+                    <!-- Anime Information -->
                     <div class="ranking-info">
 
+
+                        <!-- Anime Number -->
                         <span class="anime-number">
-                            ANIME {{ "%03d"|format(loop.index) }}
+
+                            ANIME
+                            {{ "%03d"|format(loop.index) }}
+
                         </span>
 
+
+                        <!-- Anime Name -->
                         <h2>
                             {{ item['name'] }}
                         </h2>
 
+
+                        <!-- Genre -->
                         <p class="ranking-genre">
                             {{ item['genre'] }}
                         </p>
 
+
+                        <!-- Members -->
                         <p class="ranking-members">
+
                             👥
+
                             {{ "{:,}".format(item['members']) }}
+
                             members
+
                         </p>
 
+
                     </div>
+
 
 
                     <!-- Rating -->
                     <div class="ranking-score">
 
+
                         <span class="score-label">
                             SCORE
                         </span>
 
+
                         <strong>
+
                             ★ {{ item['rating'] }}
+
                         </strong>
+
 
                     </div>
 
+
                 </article>
 
+
             {% endfor %}
+
 
         </section>
 
 
+
+        /* footerr*/
+
         <footer class="anime-footer">
+
 
             <span>
                 朝霧
             </span>
 
+
             <p>
                 ASIGIRI ANIME DATABASE
             </p>
 
+
         </footer>
 
+
     </main>
+
 
 </body>
 
