@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, abort
 import sqlite3
 
 
@@ -241,21 +241,23 @@ def content():
         "content.html"
     )
 
+#=============================================================================================#
+#ERROR HANLDERS- COSTUM 404 PAGE AND 505 ERROR HANDLERS FOR HTTP ERRORS#
+#=============================================================================================#
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("error404.html"), 404
+
+@app.route("/test505")
+def test_505():
+    abort(505)
+
+@app.errorhandler(505)
+def http_version_not_supported(error):
+    return render_template("error505.html"), 505
 
 # START WEBSITE
 
 if __name__ == "__main__":
 
     app.run(debug=True)
-
-#=============================================================================================#
-#ERROR HANLDERS- COSTUM 404 PAGE AND 505 ERROR HANDLERS FOR HTTP ERRORS#
-#=============================================================================================#
-@app.errorhandler(404)
-def page_not_found(error):
-    return render_template("404.html"), 404
-
-
-@app.errorhandler(505)
-def http_version_not_supported(error):
-    return render_template("error505.html"), 505
