@@ -248,10 +248,6 @@ def content():
 def page_not_found(error):
     return render_template("error404.html"), 404
 
-@app.route("/test505")
-def test_505():
-    abort(505)
-
 @app.errorhandler(505)
 def http_version_not_supported(error):
     return render_template("error505.html"), 505
