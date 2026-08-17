@@ -1,0 +1,31 @@
+<!-- 505 Error Page-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>505 - HTTP Version Not Supported</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="error-page">
+        <h1>505</h1>
+
+        <h2>HTTP Version Not Supported</h2>
+
+        <p>
+            The request uses an HTTP version that is not supported
+            by this website.
+        </p>
+
+        <a href="{{ url_for('home') }}">
+            Return to Asigiri
+        </a>
+    </main>
+
+</body>
+</html>

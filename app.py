@@ -258,4 +258,4 @@ def page_not_found(error):
 
 @app.errorhandler(505)
 def http_version_not_supported(error):
-    return render_template("505.html"), 505
+    return render_template("error505.html"), 505
