@@ -5,9 +5,10 @@ import sqlite3
 app = Flask(__name__)
 
 
-# ================ #
-# ASIGIR HOME PAGE #
-# ================#
+# ===============================================================#
+# ASIGIR HOME PAGE //ANIME DETAILS ON CARD AND AMOUNT PORTRAYED
+#  IN THE FRONT 
+# ===============================================================#
 
 @app.route("/")
 def home():
@@ -246,3 +247,11 @@ def content():
 if __name__ == "__main__":
 
     app.run(debug=True)
+
+#==============================#
+#ERROR HANLDER- COSTUM 404 PAGE#
+#==============================#
+
+    @app.errorhandler(404)
+def page_not_found(error):
+    return render_template("404.html"), 404
