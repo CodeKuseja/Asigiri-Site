@@ -79,9 +79,9 @@ def home():
     )
 
 
-# =================#
-# COMMUNITY PAGEI   #
-# ================ #
+# ==============================================================================================#
+# COMMUNITY PAGEI-FUNCTION ALLOWS ANONYMOUSE COMMENTS WITHOUT THE NEED OF PRIVATE INFORMATION   #
+# ==============================================================================================#
 
 @app.route("/community", methods=["GET", "POST"])
 def community():
@@ -186,9 +186,9 @@ def community():
     )
 
 
-# ======================#
-# ANIME LEADERBOARD     #
-# ======================#
+# ===================================================================================================#
+#    ANIME LEADERBOARD / RANKINGS OF ANIME AND TOTAL RATING,MEMBERS,GENRE AND DETAILS(AMOUNT 50)   #
+# ===================================================================================================#
 
 @app.route("/anime")
 def anime_page():
@@ -248,10 +248,14 @@ if __name__ == "__main__":
 
     app.run(debug=True)
 
-#==============================#
-#ERROR HANLDER- COSTUM 404 PAGE#
-#==============================#
-
-    @app.errorhandler(404)
+#=============================================================================================#
+#ERROR HANLDERS- COSTUM 404 PAGE AND 505 ERROR HANDLERS FOR HTTP ERRORS#
+#=============================================================================================#
+@app.errorhandler(404)
 def page_not_found(error):
     return render_template("404.html"), 404
+
+
+@app.errorhandler(505)
+def http_version_not_supported(error):
+    return render_template("505.html"), 505
