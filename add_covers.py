@@ -1,3 +1,13 @@
+#==================================================================================================== #
+#This is an an automatic cover system into providing covers for anime instead of manually adding them #
+# in hard coded components,
+# applying a loop function from jinja in html and the script runs its automation.
+# To test it out simply run py add_covers.py and it will look covers for  anime that do not have covers#
+# And I set the limit two 20 when you run the script, but you when you change the amount from 20 to more#
+#will try to that amount of covers, it wont work for anime that truly dont have a functioning cover online@
+#
+#=====================================================================================================#
+
 import sqlite3
 import time
 
@@ -94,4 +104,4 @@ def update_covers(limit: int = 20) -> None:
 
 
 if __name__ == "__main__":
-    update_covers(limit=20)
+    update_covers(limit=20
